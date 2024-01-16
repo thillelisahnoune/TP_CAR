@@ -65,18 +65,23 @@ public class ServeurFtp {
 			 
 			 
 			 while(true){
+				 if (s.hasNextLine()) {
 				// Récupérer le quit
 				 String quitT = s.nextLine();
+				 
 				 
 				 if (quitT.equals("QUIT")) {
 				 String strQ = "221 User logged out\r\n";
 				 output.write(strQ.getBytes());
+				 System.out.println("User logged out");
 				 break;
 				 } else {
 				 String strOther = "502 Command not implemented\r\n";
 				 output.write(strOther.getBytes());
 				 }
+				 }
 			 }
+			 
 	}
 
 }
